@@ -1,0 +1,9 @@
+downsample_images
+downsample_test_images
+generated
+images
+test_images
+model_state_UNet
+.venv
+.idea
+__pycache__
