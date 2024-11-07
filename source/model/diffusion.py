@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from tqdm import tqdm
 
 
+@torch.no_grad()
 class LinearSchedule(nn.Module):
     def __init__(self, beta_start=0.0001, beta_end=0.02):
         super().__init__()
@@ -57,6 +58,7 @@ class LinearSchedule(nn.Module):
         return x_t_minus_one_mean + torch.sqrt(x_t_minus_one_variance) * noise
 
 
+@torch.no_grad()
 class Diffusion(nn.Module):
     def __init__(self, diffuser, denoiser):
         super().__init__()

@@ -1,6 +1,6 @@
-python source/generate_image.py \
---num_samples 20000 \
---dest_image_dir "generated_test_images" \
+python images/generate_image.py \
+--num_samples 50000 \
+--image_save_dir "images/train_images_original" \
 --prompt "anime-style avatar, totally white background" \
 --model_name "playgroundai/playground-v2.5-1024px-aesthetic" \
 --variant "fp16" \

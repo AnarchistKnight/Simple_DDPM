@@ -1,5 +1,5 @@
 import os, torch, argparse
-from utils import CaeDataset, lss, train
+from utils import CustomDataset, lss, train
 from model.unet import build_unet
 from omegaconf import OmegaConf
 from torch.utils.data import DataLoader
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     print("CUDA version:", torch.version.cuda)
     print("PyTorch version:", torch.__version__)
 
-    dataset = CaeDataset(args.train_dataset_directory)
+    dataset = CustomDataset(args.train_dataset_directory)
     dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=True)
 
     model = build_unet(device)

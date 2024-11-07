@@ -1,9 +1,10 @@
-downsample_images
-downsample_test_images
+images/train_images_original
+images/train_images_downsample
+images/test_images_original
+images/test_images_downsample
 generated
-images
-test_images
-model_state_UNet
+checkpoints
 .venv
 .idea
 __pycache__
+*.json

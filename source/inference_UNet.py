@@ -1,5 +1,4 @@
 import os
-from omegaconf import OmegaConf
 from model.unet import build_unet
 import torch
 from utils import inference, lss

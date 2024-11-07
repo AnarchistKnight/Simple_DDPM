@@ -3,7 +3,6 @@ from model.unet import build_unet
 from model.diffusion import LinearSchedule, Diffusion
 import cv2
 import os
-from tqdm import tqdm
 import numpy as np
 
 
@@ -16,12 +15,12 @@ os.makedirs(save_dir, exist_ok=True)
 with torch.no_grad():
     device = torch.device("cuda")
     denoiser = build_unet(device)
-    unet_checkpoint = "model_state_UNet/latest_model.pth"
+    unet_checkpoint = "checkpoints/latest_model.pth"
     denoiser.load_state_dict(torch.load(unet_checkpoint))
     diffuser = LinearSchedule().to(device)
     model = Diffusion(diffuser=diffuser, denoiser=denoiser)
     model.eval()
-    n = 8
+    n = 11
     image_height = 32
     image_width = 32
     input = torch.randn(n * n, 3, image_height, image_width).to(device)

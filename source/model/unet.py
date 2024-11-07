@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch.nn.init as init
 import sys
 sys.path.append("D:/playgroundv25")
-import random
 
 
 class ConvBlock(nn.Module):
