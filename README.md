@@ -1,3 +1,10 @@
+## Content
+- [1](#Dataset)
+- [2](#Some Details)
+- [3](#Setup)
+- [4](#Loss Curve)
+- [5](#Generated Images)
+
 The program is to train a simple unconditional DDPM. I was just curious why diffusion model works well and which components really contribute to its working. So I decided to start training a simple DDPM from scratch and conduct some ablation studies.
 
 ### Dataset
@@ -30,5 +37,5 @@ For your convenience, I also paste the full pip list in [pip_list.txt](https://g
 ### Loss Curve
 ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve.png)
 
-### generated images
+### Generated Images
 ![generated images](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/generated/generated_images_13x13.png)
