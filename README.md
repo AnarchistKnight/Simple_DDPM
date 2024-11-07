@@ -1,9 +1,9 @@
 ## Content
-- [1](#Dataset)
-- [2](#Some Details)
-- [3](#Setup)
-- [4](#Loss Curve)
-- [5](#Generated Images)
+- [Dataset](#Dataset)
+- [Some Details](#Some_Details)
+- [Setup](#Setup)
+- [Loss Curve](#Loss_Curve)
+- [Generated Images](#Generated_Images)
 
 The program is to train a simple unconditional DDPM. I was just curious why diffusion model works well and which components really contribute to its working. So I decided to start training a simple DDPM from scratch and conduct some ablation studies.
 
@@ -21,7 +21,7 @@ bash images/generate_images_for_test.sh
 bash images/downsample_images_for_test.sh
 ~~~
 
-### Some Details
+### Some_Details
 The input is normalized to [-1, 1], some papers claims that input normalization to [0, 1] is also fine. The denoiser is a simple UNet, no attention layer is added. The tail_block at the end of UNet is to map the intermediate output during denoising process to an unbounded range. Well, it seems not very necessary as many implementations choose to clamp the intermediate output to [-1, 1]. I use SiLU as the activation function, as many people do.
 
 ### Setup
@@ -34,8 +34,8 @@ bash install.sh # to install necessary python packages
 
 For your convenience, I also paste the full pip list in [pip_list.txt](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/pip_list.txt).
 
-### Loss Curve
+### Loss_Curve
 ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve.png)
 
-### Generated Images
+### Generated_Images
 ![generated images](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/generated/generated_images_13x13.png)
