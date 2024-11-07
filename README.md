@@ -1,4 +1,4 @@
-The program is to train a simple unconditional DDPM. I was just curious why diffusion model works well and which components really contributes to its working well. So I decided to start training a simple DDPM from scratch
+The program is to train a simple unconditional DDPM. I was just curious why diffusion model works well and which components really contributes to its working well. So I decided to start training a simple DDPM from scratch and conduct some ablation studies。
 
 I used playground v2.5 with prompt "anime-style avatar, totally white background", to generate train and test images. The benefits of doing this is that, the generated images are of a single kind, and I expect this would make the training much easier. As the graphic card I have is one 4070ti-super with 16 GB memory, I downsampled the generated 1024x1024 images to 32x32. As a result of this, I could set batch size to 230. The batch size is large enough to use batch normalizaiton. If you train with higher resolution or smaller graphic memory, it's better to use group normalization as many papers suggest.
 
@@ -12,4 +12,4 @@ source venv/bin/activate
 bash install.sh
 ~~~
 
-For your convenience, I also paste the full pip list in [pip_list.txt]().
+For your convenience, I also paste the full pip list in [pip_list.txt](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/pip_list.txt).
