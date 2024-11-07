@@ -4,10 +4,12 @@ I used playground v2.5 with prompt "anime-style avatar, totally white background
 
 The input is normalized to [-1, 1]，some papers claims that input normalization to [0, 1] is also fine. I personally prefer inout normalization to [-1, 1], as standard gaussian distribution is central symmetric aournd zero. The denoiser is a simple UNet, no attention layer is added. The tail_block at the end of UNet is to map the pixel value to an unbounded range, instead of [-1, 1]. Considering the input is a gaussian noise, and the denoising is expected to happen slowly and gradually over 1000 steps, not expecting the intermediate output to range between -1 and 1 is reasonable. Well, many implementations choose to clamp the intermediate output to [-1, 1]. More experiments are supposed to be done on this. I use SiLU as the activation function, as many people do.
 
-To setup the python environment, run the following scripts in the terminal.
+My python version is 3.12.4, my cuda version is 12.6. To setup the python environment, run the following scripts in the terminal.
 
 ~~~
 python -m venv venv
 source venv/bin/activate
 bash install.sh
 ~~~
+
+For your convenience, I also paste the full ~pip list~ in pip_list.txt.
