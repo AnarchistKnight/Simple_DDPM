@@ -9,7 +9,7 @@ My python version is 3.12.4, my cuda version is 12.6. To setup the python enviro
 ~~~
 python -m venv venv
 source venv/bin/activate
-bash install.sh
+bash install.sh # to install necessary python packages
 ~~~
 
 For your convenience, I also paste the full pip list in [pip_list.txt](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/pip_list.txt).
