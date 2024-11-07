@@ -26,3 +26,9 @@ bash install.sh # to install necessary python packages
 ~~~
 
 For your convenience, I also paste the full pip list in [pip_list.txt](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/pip_list.txt).
+
+### Loss Curve
+![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve.png)
+
+### generated images
+![generated images](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/generated/generated_images_13x13.png)
