@@ -6,3 +6,8 @@ The input is normalized to [-1, 1]，some papers claims that input normalization
 
 To setup the python environment, run the following scripts in the terminal.
 
+'''
+python -m venv venv
+source venv/bin/activate
+bash install.sh
+'''
