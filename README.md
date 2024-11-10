@@ -2,7 +2,7 @@ The program is to train a simple unconditional DDPM. I was just curious why diff
 
 ### Content
 - [Dataset](#Dataset)
-- [Some Details](#Some_Details)
+- [Some Details](#(Some Details))
 - [Setup](#Setup)
 - [Loss Curve](#Loss_Curve)
 - [Generated Images](#Generated_Images)
