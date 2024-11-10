@@ -5,6 +5,8 @@ The program is to train a simple unconditional DDPM. I was just curious why diff
 - [Some Details](#Some-Details)
 - [Checkpoint](#Checkpoint)
 - [Setup](#Setup)
+- [Train](#Train)
+- [Generate Images](#Generate-Images)
 - [Loss Curve](#Loss-Curve)
 - [Generated Images](#Generated-Images)
 
