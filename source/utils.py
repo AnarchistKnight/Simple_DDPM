@@ -2,13 +2,11 @@ from torch.utils.data import Dataset
 
 import torch.nn.functional as F
 import torch
-import torch.nn as nn
 import torchvision.transforms as transforms
 import cv2, os, math, json
 import numpy as np
 from tqdm import tqdm
 import visdom
-import random
 
 
 def normalize_image(image):
@@ -37,14 +35,11 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, idx):
         return self.input_images[idx]
-        # input_image = np.array(input_image / 255, dtype=np.float32)
-        # input_image = np.array(input_image / 255.0, dtype=np.float32)
-        # return self.input_transform(input_image)
 
 
 @torch.no_grad()
-def validate(model, image_dir, in_criterion, device, noise_scale):
-    model.eval()  # 将模型设置为评估模式
+def validate(model, image_dir, in_criterion, device):
+    model.eval()
     model = model.to(device)
     input_transform = transforms.ToTensor()
     losses = []
@@ -56,7 +51,7 @@ def validate(model, image_dir, in_criterion, device, noise_scale):
         img = img.unsqueeze(0)
         img = img.to(device)
         batch_size = 1
-        scale = noise_scale * torch.rand(batch_size, 1, 1, 1, device=device)
+        scale = torch.rand(batch_size, 1, 1, 1, device=device)
         noise = torch.randn_like(img, device=device)
         x = torch.sqrt(1 - scale) * img + torch.sqrt(scale) * noise
         outputs = model(x)
@@ -116,7 +111,7 @@ def save_min_loss(path, min_loss):
         json.dump({'min_loss': min_loss}, f)
 
 
-def train_per_epoch(model, dataloader, criterion, optimizer, device, noise_scale):
+def train_per_epoch(model, dataloader, criterion, optimizer, device):
     batch_losses = []
     model.train()
     optimizer.zero_grad()
@@ -124,7 +119,7 @@ def train_per_epoch(model, dataloader, criterion, optimizer, device, noise_scale
         inputs = inputs.to(device)
 
         batch_size = inputs.shape[0]
-        scale = noise_scale * torch.rand(batch_size, 1, 1, 1, device=device)
+        scale = torch.rand(batch_size, 1, 1, 1, device=device)
         noise = torch.randn_like(inputs, device=device)
         x = torch.sqrt(1 - scale) * inputs + torch.sqrt(scale) * noise
         outputs = model(x)
@@ -141,14 +136,14 @@ def train_per_epoch(model, dataloader, criterion, optimizer, device, noise_scale
 
 def train(model, dataloader, criterion, num_epochs, optimizer, model_checkpoint_dir,
           validate_every, save_every, device, validate_dataset_directory,
-          min_loss_path, noise_scale, latest_epoch):
+          min_loss_path, latest_epoch):
     min_validation_loss = get_min_loss(min_loss_path) if os.path.exists(min_loss_path) else None
     viz = visdom.Visdom()
     opts = dict(title='Diffusion Training Loss', xlabel='epoch', ylabel='Loss')
     loss_window = viz.line(X=np.array([0]), Y=np.array([0]), opts=opts)
 
     for epoch in range(latest_epoch, latest_epoch + num_epochs):
-        epoch_loss = train_per_epoch(model, dataloader, criterion, optimizer, device, noise_scale)
+        epoch_loss = train_per_epoch(model, dataloader, criterion, optimizer, device)
         viz.line(X=np.array([epoch - latest_epoch]),
                  Y=np.array([epoch_loss]),
                  win=loss_window,
@@ -164,7 +159,7 @@ def train(model, dataloader, criterion, num_epochs, optimizer, model_checkpoint_
         torch.save(model.state_dict(), latest_save_path)
 
         if validate_every > 0 and epoch % validate_every == 0:
-            validate_loss = validate(model, validate_dataset_directory, criterion, device, noise_scale)
+            validate_loss = validate(model, validate_dataset_directory, criterion, device)
             print(f"validate loss at {epoch}-th epoch: {validate_loss}")
             viz.line(X=np.array([epoch - latest_epoch]),
                      Y=np.array([validate_loss]),

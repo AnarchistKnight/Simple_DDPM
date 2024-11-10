@@ -23,7 +23,6 @@ if __name__ == "__main__":
     parser.add_argument("--learning_rate", type=float, default=0.0001)
     parser.add_argument("--batch_size", type=int, default=530)
     parser.add_argument("--num_epochs", type=int, default=50)
-    parser.add_argument("--noise_scale", type=float, default=1.0)
     parser.add_argument("--validate_every", type=int, default=10)
     parser.add_argument("--save_every", type=int, default=50)
     parser.add_argument("--validate_dataset_directory", type=str, default="D:/playgroundv25/downsample_test_images")
@@ -66,5 +65,4 @@ if __name__ == "__main__":
           device=device,
           validate_dataset_directory=args.validate_dataset_directory,
           min_loss_path=args.min_loss_path,
-          noise_scale=args.noise_scale,
           latest_epoch=latest_epoch)

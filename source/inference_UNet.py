@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     assert torch.cuda.is_available()
     device = torch.device(args.device)
-    model = build_unet(args.noise_scale, device)
+    model = build_unet(device)
 
     assert os.path.exists(args.model_checkpoint)
     model.load_state_dict(torch.load(args.model_checkpoint))

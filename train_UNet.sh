@@ -3,7 +3,6 @@ python source/train_unet.py \
 --learning_rate 0.00001 \
 --batch_size 230 \
 --num_epochs 5000 \
---noise_scale 1.0 \
 --validate_every 10 \
 --save_every 5 \
 --train_dataset_directory "images/train_images_downsample" \
