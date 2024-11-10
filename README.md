@@ -52,7 +52,7 @@ bash train_UNet.sh
 To see the loss curve, open the following link in your web browser
 ~~~
 http://localhost:8097/
-~~
+~~~
 
 ### Generate Images
 To generate images, simply run
