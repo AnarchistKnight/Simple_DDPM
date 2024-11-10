@@ -28,7 +28,7 @@ bash images/downsample_images_for_test.sh
 The input is normalized to [-1, 1], some papers claims that input normalization to [0, 1] is also fine. The denoiser is a simple UNet, no attention layer is added. The tail_block at the end of UNet is to map the intermediate output during denoising process to an unbounded range. Well, it seems not very necessary as many implementations choose to clamp the intermediate output to [-1, 1]. I use SiLU as the activation function, as many people do.
 
 ### Checkpoint
-checkpoint could be downloaded here
+Checkpoint could be downloaded here
 ~~~
 https://drive.google.com/file/d/1-k_7pffTLUT5lSXFNqH9Fml5KPx7Gbos/view?usp=drive_link
 ~~~
