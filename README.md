@@ -7,7 +7,7 @@ The program is to train a simple unconditional DDPM. I was just curious why diff
 - [Setup](#Setup)
 - [Train](#Train)
 - [Generate Images](#Generate-Images)
-- [Loss Curve](#Loss-Curve)
+- [Loss Curve](#Loss-Curves)
 - [Example Generated Images](#Example-Generated-Images)
 
 ### Dataset
@@ -63,10 +63,10 @@ To generate $n\times m$ images, run
 bash generate.sh
 ~~~
 
-### Loss Curve
-Loss curve when trained with 23,000 images
+### Loss Curves
+Loss curves when trained with 23,000 images. Orange one is for train loss, green one for validation loss.
   ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve_1.png)
-Loss curve when trained with 69,000 images
+Loss curves when trained with 69,000 images
   ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve_2.png)
 
 ### Example Generated Images
