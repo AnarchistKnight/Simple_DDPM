@@ -41,11 +41,11 @@ bash install.sh # to install necessary python packages
 For your convenience, I also paste the full pip list in [pip_list.txt](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/pip_list.txt).
 
 ### Train
-To train the model, simply run
+To train the model, two terminals need to be opened. In one terminal, run
 ~~~
 visdom
 ~~~
-in one terminal. And in another terminal, run
+In the other terminal, run
 ~~~
 bash train_UNet.sh
 ~~~
