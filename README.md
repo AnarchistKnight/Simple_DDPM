@@ -35,7 +35,10 @@ bash install.sh # to install necessary python packages
 For your convenience, I also paste the full pip list in [pip_list.txt](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/pip_list.txt).
 
 ### Loss_Curve
-![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve.png)
+Loss curve when trained with 23,000 images
+  ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve_1.png)
+Loss curve when trained with 69,000 images
+  ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve_2.png)
 
 ### Generated_Images
 ![generated images](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/generated/generated_images_13x13.png)
