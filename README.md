@@ -70,4 +70,4 @@ Loss curve when trained with 69,000 images
   ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve_2.png)
 
 ### Example Generated Images
-  ![generated images](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/generated/generated_images_13x13.png)
+  ![generated images](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/generated/generated_images_8x4.png)
