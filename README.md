@@ -11,7 +11,7 @@ The program is to train a simple unconditional DDPM. I was just curious why diff
 - [Generated Images](#Generated-Images)
 
 ### Dataset
-I used playground v2.5 with prompt "anime-style avatar, totally white background", to generate train and test images. The benefits of doing this is that, the generated images are of a single kind, and I expect this would make the training easier. The GPU at hand is a 4070ti-super with 16 GB memory, so I downsampled the generated images from 1024x1024 to 32x32. As a result of this, I could set batch size to 230. The batch size is large enough to use batch normalizaiton. It's better to use group normalization when the batch size is small, as many papers suggest.
+I used playground v2.5 with prompt 'anime-style avatar, totally white background', to generate train and test images. The benefits of doing this is that, the generated images are of a single kind, and I expect this would make the training easier. The GPU at hand is a 4070ti-super with 16 GB memory, so I downsampled the generated images from 1024x1024 to 32x32. As a result of this, I could set batch size to 230. The batch size is large enough to use batch normalizaiton. It's better to use group normalization when the batch size is small, as many papers suggest.
 
 To generate your own data, run
 ~~~
