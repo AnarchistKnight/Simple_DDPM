@@ -26,7 +26,9 @@ The input is normalized to [-1, 1], some papers claims that input normalization 
 
 ### Checkpoint
 checkpoint could be downloaded here
+~~~
 https://drive.google.com/file/d/1-k_7pffTLUT5lSXFNqH9Fml5KPx7Gbos/view?usp=drive_link
+~~~
 
 ### Setup
 My python version is 3.12.4, my cuda version is 12.6. To setup the python environment, run the following scripts in the terminal.
@@ -41,8 +43,16 @@ For your convenience, I also paste the full pip list in [pip_list.txt](https://g
 ### Train
 To train the model, simply run
 ~~~
+visdom
+~~~
+in one terminal. And in another terminal, run
+~~~
 bash train_UNet.sh
 ~~~
+To see the loss curve, open the following link in your web browser
+~~~
+http://localhost:8097/
+~~
 
 ### Generate Images
 To generate images, simply run
