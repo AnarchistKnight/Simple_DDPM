@@ -58,7 +58,7 @@ http://localhost:8097/
 ~~~
 
 ### Generate Images
-To generate images, simply run
+To generate $n\times m$ images, run
 ~~~
 bash generate.sh
 ~~~
