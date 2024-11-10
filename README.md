@@ -1,4 +1,4 @@
-The program is to train a simple unconditional DDPM. I was just curious why diffusion model works well and which components really contribute to its working. So I decided to start training a simple DDPM from scratch and conduct some ablation studies.
+The program is to train a simple unconditional DDPM. I decided to do this as I was just curious why diffusion model works well and which components really contribute to its working. So I decided to start training a simple DDPM from scratch and conduct some ablation studies.
 
 ### Content
 - [Dataset](#Dataset)
