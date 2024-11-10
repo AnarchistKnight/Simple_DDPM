@@ -4,23 +4,23 @@ from model.diffusion import LinearSchedule, Diffusion
 import cv2
 import os
 import numpy as np
+import argparse
 
 
 def denormalize_image(img):
     return (img + 1) * 255 / 2
 
 
-save_dir = "generated"
-os.makedirs(save_dir, exist_ok=True)
-with torch.no_grad():
-    device = torch.device("cuda")
+@torch.no_grad()
+def generate_image(save_dir, n, checkpoint, device):
+    os.makedirs(save_dir, exist_ok=True)
+    device = torch.device(device)
     denoiser = build_unet(device)
-    unet_checkpoint = "checkpoints/latest_model.pth"
-    denoiser.load_state_dict(torch.load(unet_checkpoint))
+
+    denoiser.load_state_dict(torch.load(checkpoint))
     diffuser = LinearSchedule().to(device)
     model = Diffusion(diffuser=diffuser, denoiser=denoiser)
     model.eval()
-    n = 11
     image_height = 32
     image_width = 32
     input = torch.randn(n * n, 3, image_height, image_width).to(device)
@@ -37,3 +37,18 @@ with torch.no_grad():
             big_image[i * image_height:(i + 1) * image_height, j * image_width:(j + 1) * image_width] = generated_image
     save_path = os.path.join(save_dir, f"generated_images_{n}x{n}.png")
     cv2.imwrite(save_path, big_image)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="input arguments for diffusion generate")
+    parser.add_argument("--generated_image_save_dir", type=str, default="images/generated")
+    parser.add_argument("--n", type=int, default=8)
+    parser.add_argument("--checkpoint", type=str, default="checkpoints/latest_model.pth")
+    parser.add_argument("--device", type=str, default="cuda")
+    args = parser.parse_args()
+    generate_image(args.generated_image_save_dir,
+                   args.n,
+                   args.checkpoint,
+                   args.device)
+
+

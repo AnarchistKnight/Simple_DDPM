@@ -149,7 +149,11 @@ def train(model, dataloader, criterion, num_epochs, optimizer, model_checkpoint_
 
     for epoch in range(latest_epoch, latest_epoch + num_epochs):
         epoch_loss = train_per_epoch(model, dataloader, criterion, optimizer, device, noise_scale)
-        viz.line(X=np.array([epoch]), Y=np.array([epoch_loss]), win=loss_window, update='append', name="train loss")
+        viz.line(X=np.array([epoch - latest_epoch]),
+                 Y=np.array([epoch_loss]),
+                 win=loss_window,
+                 update='append',
+                 name="train loss")
         print(f"train loss at {epoch}-th epoch: {epoch_loss}")
 
         if epoch % save_every == 0 and epoch > latest_epoch:
@@ -162,8 +166,11 @@ def train(model, dataloader, criterion, num_epochs, optimizer, model_checkpoint_
         if validate_every > 0 and epoch % validate_every == 0:
             validate_loss = validate(model, validate_dataset_directory, criterion, device, noise_scale)
             print(f"validate loss at {epoch}-th epoch: {validate_loss}")
-            viz.line(X=np.array([epoch - latest_epoch]), Y=np.array([validate_loss]), win=loss_window,
-                     update='append', name="validate loss")
+            viz.line(X=np.array([epoch - latest_epoch]),
+                     Y=np.array([validate_loss]),
+                     win=loss_window,
+                     update='append',
+                     name="validate loss")
 
             if min_validation_loss is None:
                 min_validation_loss = validate_loss

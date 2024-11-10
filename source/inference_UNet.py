@@ -8,11 +8,10 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="input arguments for inferencing")
     parser.add_argument("--groundtruth_image_directory", type=str,
-                        default="D:/playgroundv25/downsample_test_images")
+                        default="images/downsample_test_images")
     parser.add_argument("--pred_image_directory", type=str,
-                        default="D:/playgroundv25/unet_reconstructed_downsample_test_images")
+                        default="images/unet_reconstructed_downsample_test_images")
     parser.add_argument("--model_checkpoint", type=str, default="model_state_UNet.pth")
-    parser.add_argument("--noise_scale", type=float, default=0.7)
     parser.add_argument("--device", type=str, default="cuda")
     args = parser.parse_args()
 
