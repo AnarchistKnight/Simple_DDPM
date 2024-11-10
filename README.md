@@ -21,7 +21,7 @@ bash images/generate_images_for_test.sh
 bash images/downsample_images_for_test.sh
 ~~~
 
-### Some_Details
+### Some Details
 The input is normalized to [-1, 1], some papers claims that input normalization to [0, 1] is also fine. The denoiser is a simple UNet, no attention layer is added. The tail_block at the end of UNet is to map the intermediate output during denoising process to an unbounded range. Well, it seems not very necessary as many implementations choose to clamp the intermediate output to [-1, 1]. I use SiLU as the activation function, as many people do.
 
 ### Setup
@@ -37,13 +37,13 @@ For your convenience, I also paste the full pip list in [pip_list.txt](https://g
 ### Train
 To train the model, simply run train_UNet.sh
 
-###  Generate Images
+### Generate Images
 
-### Loss_Curve
+### Loss Curve
 Loss curve when trained with 23,000 images
   ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve_1.png)
 Loss curve when trained with 69,000 images
   ![loss curve](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/loss_curve_2.png)
 
-### Generated_Images
+### Example Generated Images
 ![generated images](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/generated/generated_images_13x13.png)
