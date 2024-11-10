@@ -25,7 +25,7 @@ bash images/downsample_images_for_test.sh
 ~~~
 
 ### Some Details
-The input is normalized to $\[-1, 1\]$, some papers claims that input normalization to $\[0, 1\]$ is also fine. The denoiser is a simple UNet, no attention layer is added. The tail_block at the end of UNet is to map the intermediate output during denoising process to an unbounded range. Well, it seems not very necessary as many implementations choose to clamp the intermediate output to $\[-1, 1\]$. I use SiLU as the activation function, as many people do. I do not use any noise scheme when during, the $\alpha^\hat$ is sampled uniformly from $[0, 1]$
+The input is normalized to $\[-1, 1\]$, some papers claims that input normalization to $\[0, 1\]$ is also fine. The denoiser is a simple UNet, no attention layer is added. The tail_block at the end of UNet is to map the intermediate output during denoising process to an unbounded range. Well, it seems not very necessary as many implementations choose to clamp the intermediate output to $\[-1, 1\]$. I use SiLU as the activation function, as many people do. I do not use any noise scheme when during, the $\alpha^{\hat}$ is sampled uniformly from $[0, 1]$
 
 ### Checkpoint
 Checkpoint could be downloaded here
