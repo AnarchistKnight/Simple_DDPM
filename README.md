@@ -35,9 +35,16 @@ bash install.sh # to install necessary python packages
 For your convenience, I also paste the full pip list in [pip_list.txt](https://github.com/AnarchistKnight/Simple_DDPM/blob/master/pip_list.txt).
 
 ### Train
-To train the model, simply run train_UNet.sh
+To train the model, simply run
+~~~
+bash train_UNet.sh
+~~~
 
 ### Generate Images
+To generate images, simply run
+~~~
+bash generate.sh
+~~~
 
 ### Loss Curve
 Loss curve when trained with 23,000 images
