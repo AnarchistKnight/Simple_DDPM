@@ -11,7 +11,7 @@ The program is to train a simple unconditional DDPM from scratch, and also condu
 - [Example Generated Images](#Example-Generated-Images)
 
 ### Dataset
-I used playground v2.5 with prompt `anime-style avatar, totally white background`, to generate train and test images. The benefits of doing this is that, the generated images are of a single kind, and I expect this would make training my own diffusion model easier. The GPU at hand is a 4070ti-super with 16GB memory. To avoid training a few weeks or longer, I downsampled the generated images from 1024x1024 to 32x32. As a result of this, I could set batch size to 230. The batch size is large enough to use batch normalizaiton. When the batch size is small, it's better to use group normalization as many papers suggest.
+I used playground v2.5 with prompt `anime-style avatar, totally white background`, to generate train and test images. The benefits of doing this is that, the generated images are of a single kind, and I expect this would make training my own diffusion model easier. The GPU at my hand is a 4070ti-super with 16GB memory. To avoid training a few weeks or longer, I downsampled the generated images from 1024x1024 to 32x32. As a result of this, I could set batch size to 230. The batch size is large enough to use batch normalizaiton. When the batch size is small, it's better to use group normalization as many papers suggest.
 
 To generate your own data, run
 ~~~
